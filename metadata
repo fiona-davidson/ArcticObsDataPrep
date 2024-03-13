@@ -1,0 +1,526 @@
+Arctic Observations Raw Data readME file:
+
+https://aeolus.seos.uvic.ca/~jlanger/Datasets_Observations/
+Data from the above link was sent to our group from Johanna Langer. This readme lists metadata for each dataset Jo uses.
+
+
+-------------------------
+Raw/
+
+Ahmed_2019
+
+Description: This dataset is from Mohamed Ahmed, U Calgary. 
+More meterological and surface water data is available upon request mohamed.ahmed3@ucalgary.ca (https://aeolus.seos.uvic.ca/~jlanger/Datasets_Observations/Raw/Ahmed_2019/DataPolicy_ReadMe.txt)
+
+18DL20150417.csv
+
+Headers: EXPOCODE,PI,Ship,day,time,LAT_dec_degree,LONG_dec_degree,lons,lats,lonmin,lonmax,latmin,latmax,X_NAA,Y_NAA,xCO2_EQU_ppm,xH2O_EQU_ppt,TEMP_LICOR_degree_C,PRES_LICOR_hPa,PRES_EQU_hPa,TEMP_EQU_degree_C,SSS_psu,SST_degree_C,pCO2_SW_Uatm,fCO2_SW_uatm 
+
+
+Data2010.txt, Data2011.txt, Data2013.txt, Data2014.txt, Data2015.txt, Data2016.txt
+
+Headers: DateTime longitude latitude pCO2(uatm) salinity temp(degC) WindSpeed(m/s) SeaIceConc(intenths)
+* Note from Mohamaed: "All files contain the following variables: DateTime, Latitude, longitude, seawater partial pressure (pCO2sw) in Uatm, salinity, seawater temperature in celsius, shipboard wind speed (m/s), and sea ice concentration (in tenths)."
+
+-------------------------
+Processed/
+Ahmed_2019_18DL20100701.csv, Ahmed_2019_18DL20110718.csv, Ahmed_2019_18DL20130726.csv, Ahmed_2019_18DL20140707.csv, Ahmed_2019_18DL20150417.csv, Ahmed_2019_18DL20160603.csv
+
+2010-2016 missing 2012
+
+Same headers as Raw/Ahmed_2019 files
+
+Questions about data: What is the difference? Raw data is in txt format and processed data is in csv format. 
+What are the 18D files, because we can't see them, and what are the processed files? 
+
+-------------------------
+Raw/Arctic Net Cruises/WD
+
+"Data from polardatacatalogue - Amundsen Science Data Collection 
+Downloaded Sept 2022
+See individual READMEs per .zip.
+
+Files in WD/ are slightly altered copies (example: deleted -- from header data) to facilitate processing.
+J.LÃ¤nger Jan 2023"
+
+/WD
+
+Data from precedent years can be found at:
+
+2003-2004: CCIN520 
+2005: CCIN80,438,449,452, and 456
+2006: CCIN468,482,491,496,502,509,510
+2007-2008: CCIN796, 797, 798, 799, 800, 936, 1496, 1497, 1498, 1499, 1500,
+           1501, 1502
+2009: CCIN10987, 10988, 10989, 10990, 10991, 10992
+2010: CCIN11150, 11151, 11153, 11154, 11155, 11156, 11943
+2011: CCIN11919, 11920, 11921, 11922, 11923, 11924
+2012: No data, ship in maintenance
+2013: CCIN11926, 11927
+
+XXXX_int.zip -> folders contain a number of txt files where each individual file is called XXXX_XXX.int
+
+Jo made a script that turns these .int files into .nc files (https://github.com/JohannaLaenger/Data_cleaning_NAA_grid/blob/312a89df2e6b35988ba334019a3fb83e66be5f21/File_generation/Arctic_net_curises.ipynb)
+
+Cruise_Number, Cruise_Name, Original_Filename, Station, Cast_Number, Start_Date_Time [UTC], Initial_Latitude [deg], Initial_Longitude [deg], Sounding [m], Min_Depth [m], Max_Depth [m]
+
+Headers: Pres   Temp    Trans   Fluo   Sal     Dens   svan     N2       sigt    theta  sigthe FreezT-    O2     pH       NO3    PresPar   Par    SPar
+
+longnamesdict = {
+ 'Date_Time': ['', '[UTC]'],
+ 'original_Latitude':['',  '[deg]'],
+ 'original_Longitude': ['', '[deg]'],
+ #'Sounding [m]':['',  '[m]'],
+ 'Min_Depth': ['', '[m]'],
+ 'Max_Depth':['', '[m]'],
+ 'Pres': ['Sea Pressure (sea surface - 0)', '[decibars]'],
+ 'Temp': ['Temperature (1990 scale) ', '[deg C]'],
+ 'Trans': ['Light Transmission ', '[%]'],
+ 'Fluo': ['Fluorescence ', '[mg/m^3]'],
+ 'Sal': ['Practical Salinity ', '[psu]'],
+ 'Dens': ['Density (rho(s, t, p)-1000) ', '[kg/m^3]'],
+ 'Svan': ['Specific Volume Anomaly ', '[m^3/kg]'],
+ 'N2': ['Brunt-Vaisala Frequency N2 ', '[s^-2]'],
+ 'Sigt': ['Sigma-0 ', '[kg/m^3]'],
+ 'Theta': ['Potential Temperature ', '[deg C]'],
+ 'Sigthe': ['Sigma-Theta (rho(s, Theta, 0)-1000) ', '[kg/m^3]'],
+ 'FreezT': ['Freezing Temperature ', '[deg C]'],
+ 'O2': ['Dissolved Oxygen ', '[ml/l]'],
+ 'Cdom': ['Fluorescence of CDOM (Colored Dissolved Organic Matter) ', '[mg/m^3]'],
+ 'NO3': ['Nitrate (NO3-N) Content ', '[mmol/m^3]'],
+ 'Par': ['Photosynthetic Active Radiation ', '[µeinsteins/s/m^2]'],
+ 'SPar': ['Surface Photosynthetic Active Radiation ', '[µeinsteins/s/m^2]'],
+ 'Asal': ['Absolute Salinity TEOS-10 ', '[g/kg]'],
+ 'Cont': ['Conservative Temperature TEOS-10 ', '[deg C]'],
+ 'D_ct': ['Density TEOS-10 ((s, t, p) - 1000) ', '[kg/m^3]'],
+ 'D0ct': ['Density TEOS-10 (s, t, 0) ', '[kg/m^3]']}
+
+
+-------------------------
+Raw/CROW
+
+"Datasets from the Canadian Rangers Ocean Watch project.
+
+Unpublished. 
+-> Sarah Zimmermann : Sarah.Zimmermann@dfo-mpo.gc.ca
+-> Bill Williams: Bill.Williams@dfo-mpo.gc.ca
+
+https://data.nwtresearch.com/Scientific/15441
+
+J.LÃ¤nger Jan 2023"
+
+Data collected 2022
+
+data_from_All_CROW.nc
+
+nc Variable	Variable	Units	Description
+
+metavar1	Cruise		
+metavar2	Station		
+metavar3	Type		
+longitude	Longitude	degrees_east	
+latitude	Latitude	degrees_north	
+metavar4	Bot. Depth	m	
+date_time	Decimal Gregorian Days of the station	days since 2011-01-01 00:00:00 UTC	Relative Gregorian Days with decimal part
+			
+var1	Pressure,	db	
+var2	Fluorescence, Turner Cyclops	mg/m3	
+var3	Conductivity,	mS/cm	
+var4	Depth,	m	
+var5	Oxygen	ml/l	
+var6	Salinity	PSU	
+var7	Temperature	C	
+var8	Timeline	Serial Days	
+var9	Oxygen Volts	volt	
+var10	Oxygen Saturation	%
+
+-------------------------
+Processed/CROW 
+
+CROW_NAA_deptht.nc
+
+dimensions:
+        Station_ID = 180 ;
+        NAA_Deptht = 46 ;
+
+variables:
+        float Pressure(Station_ID, NAA_Deptht) ;
+                Pressure:_FillValue = NaNf ;
+        float Fluorescence(Station_ID, NAA_Deptht) ;
+                Fluorescence:_FillValue = NaNf ;
+        float Conductivity(Station_ID, NAA_Deptht) ;
+                Conductivity:_FillValue = NaNf ;
+        float Depth(Station_ID, NAA_Deptht) ;
+                Depth:_FillValue = NaNf ;
+        float Oxygen(Station_ID, NAA_Deptht) ;
+                Oxygen:_FillValue = NaNf ;
+        float Salinity(Station_ID, NAA_Deptht) ;
+                Salinity:_FillValue = NaNf ;
+        float Temperature(Station_ID, NAA_Deptht) ;
+                Temperature:_FillValue = NaNf ;
+        float Timeline_Serial_Days(Station_ID, NAA_Deptht) ;
+                Timeline_Serial_Days:_FillValue = NaNf ;
+        float Oxygen_Volts(Station_ID, NAA_Deptht) ;
+                Oxygen_Volts:_FillValue = NaNf ;
+        float Oxygen_Saturation(Station_ID, NAA_Deptht) ;
+                Oxygen_Saturation:_FillValue = NaNf ;
+        string Cruise(Station_ID) ;
+        string Station(Station_ID) ;
+        string Type(Station_ID) ;
+        double Longitude(Station_ID) ;
+                Longitude:_FillValue = NaN ;
+        double Latitude(Station_ID) ;
+                Latitude:_FillValue = NaN ;
+                Latitude:long_name = "Latitude" ;
+                Latitude:standard_name = "latitude" ;
+                Latitude:units = "degrees_north" ;
+                Latitude:comment = "" ;
+                Latitude:C_format = "%.3f" ;
+                Latitude:FORTRAN_format = "F12.3" ;
+        float metavar4(Station_ID) ;
+                metavar4:_FillValue = NaNf ;
+                metavar4:long_name = "Bot. Depth" ;
+                metavar4:units = "m" ;
+                metavar4:comment = "" ;
+                metavar4:C_format = "%.0f" ;
+                metavar4:FORTRAN_format = "F12.0" ;
+        int64 date_time(Station_ID) ;
+                date_time:long_name = "Decimal Gregorian Days of the station" ;
+                date_time:standard_name = "time" ;
+                date_time:comment = "Relative Gregorian Days with decimal part" ;
+                date_time:C_format = "%.5f" ;
+                date_time:FORTRAN_format = "F12.5" ;
+                date_time:units = "nanoseconds since 2014-02-21 00:00:00" ;
+                date_time:calendar = "proleptic_gregorian" ;
+        double lons(Station_ID) ;
+                lons:_FillValue = NaN ;
+        double lats(Station_ID) ;
+                lats:_FillValue = NaN ;
+                lats:long_name = "Latitude" ;
+                lats:standard_name = "latitude" ;
+                lats:units = "degrees_north" ;
+                lats:comment = "" ;
+                lats:C_format = "%.3f" ;
+                lats:FORTRAN_format = "F12.3" ;
+        double lonmin(Station_ID) ;
+                lonmin:_FillValue = NaN ;
+        double lonmax(Station_ID) ;
+                lonmax:_FillValue = NaN ;
+        double latmin(Station_ID) ;
+                latmin:_FillValue = NaN ;
+        double latmax(Station_ID) ;
+                latmax:_FillValue = NaN ;
+        string X_NAA(Station_ID) ;
+        string Y_NAA(Station_ID) ;
+        int64 lenx(Station_ID) ;
+        int64 leny(Station_ID) ;
+        double NAA_Deptht(NAA_Deptht) ;
+                NAA_Deptht:_FillValue = NaN ;
+        string Station_ID(Station_ID) ;
+
+-------------------------
+Raw/Christine_Michel
+
+"Datasets from 2017-2019   in Amundsen Gulf  from CBS-MEA  cruises 18DN20170803, 18DN20180803, 18DN20190802
+[NCEI Accession 0238161](https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0238161.html),
+[NCEI Accession 0240491](https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0240491.html), 
+[NCEI Accession 0237915](https://www.ncei.noaa.gov/data/oceans/ncei/ocads/metadata/0237915.html)
+Downloaded late 2021
+
+Paper this dataset is used in:
+Niemi A, BednarÅ¡ek N, Michel C, Feely RA, Williams W, Azetsu-Scott K, et al. 
+Biological Impact of Ocean Acidification in the Canadian Arctic: Widespread 
+Severe Pteropod Shell Dissolution in Amundsen Gulf. Frontiers in Marine Science. 
+2021;8(600184). 
+
+
+Jan 2023, JLÃ¤nger"
+
+2017-DIC-NSteiner.xlsx, 2018-DIC-NSteiner.xlsx, 2019-DIC-NSteiner.xls
+
+Headers: Cruise	Descriptor	Institute	Protocol	Platform	Geographic Region	Date	Station	Latitude	Longitude	Target property	Depth [m]	Sample#	Pressure (db)	Temp in situ (ºC) (CTD-btl)	DO (mL/L) (CTD-btl)	Sal (CTD-btl)	TIC (umol/Kg)	TIC Flag	TA (umol/Kg)	TA Flag	Comment	pH_insitu	pCO2_insitu  (matm)	ΩCa_insitu	ΩAr_insitu	
+
+List_stations.csv
+
+Headers: Year;Station;Lat raw;Lon raw
+
+Jo wrote a script to convert Michel data to netcdf: https://github.com/JohannaLaenger/Data_cleaning_NAA_grid/blob/312a89df2e6b35988ba334019a3fb83e66be5f21/File_generation/Michel_to_NAA_nc.ipynb
+
+
+-------------------------
+Processed/
+
+Michel_to_NAA.nc
+
+dimensions:
+        Station_ID = 123 ;
+        NAA_deptht = 46 ;
+variables:
+        double Depth(Station_ID, NAA_deptht) ;
+                Depth:_FillValue = NaN ;
+        double Sample(Station_ID, NAA_deptht) ;
+                Sample:_FillValue = NaN ;
+        double Pressure(Station_ID, NAA_deptht) ;
+                Pressure:_FillValue = NaN ;
+        double Temp_C(Station_ID, NAA_deptht) ;
+                Temp_C:_FillValue = NaN ;
+        double DO(Station_ID, NAA_deptht) ;
+                DO:_FillValue = NaN ;
+        double Sal(Station_ID, NAA_deptht) ;
+                Sal:_FillValue = NaN ;
+        double TIC(Station_ID, NAA_deptht) ;
+                TIC:_FillValue = NaN ;
+        double TA(Station_ID, NAA_deptht) ;
+                TA:_FillValue = NaN ;
+        double pH(Station_ID, NAA_deptht) ;
+                pH:_FillValue = NaN ;
+        double pCO2_matm(Station_ID, NAA_deptht) ;
+                pCO2_matm:_FillValue = NaN ;
+        double OmC(Station_ID, NAA_deptht) ;
+                OmC:_FillValue = NaN ;
+        double OmA(Station_ID, NAA_deptht) ;
+                OmA:_FillValue = NaN ;
+        string date_time(Station_ID) ;
+        double Latitude(Station_ID) ;
+                Latitude:_FillValue = NaN ;
+        double Longitude(Station_ID) ;
+                Longitude:_FillValue = NaN ;
+        string X_NAA(Station_ID) ;
+        string Y_NAA(Station_ID) ;
+        double latmax(Station_ID) ;
+                latmax:_FillValue = NaN ;
+        double lonmax(Station_ID) ;
+                lonmax:_FillValue = NaN ;
+        double latmin(Station_ID) ;
+                latmin:_FillValue = NaN ;
+        double lonmin(Station_ID) ;
+                lonmin:_FillValue = NaN ;
+        double lons(Station_ID) ;
+                lons:_FillValue = NaN ;
+        double lats(Station_ID) ;
+                lats:_FillValue = NaN ;
+        double NAA_deptht(NAA_deptht) ;
+                NAA_deptht:_FillValue = NaN ;
+        string Station_ID(Station_ID) ;
+
+
+-------------------------
+Raw/GLODAP
+
+data_from_GLODAPv2.2022_nc_variables.txt
+	
+nc Variable	Variable	Units	Description
+
+metavar1	Cruise		
+metavar2	Station		
+metavar3	Type		
+longitude	Longitude	degrees_east	
+latitude	Latitude	degrees_north	
+metavar4	Bot. Depth	m	
+metavar5	Alias Cruise Names		
+metavar6	Ship		
+metavar7	Chief Scientist		
+metavar8	Carbon PI		
+metavar9	Hydrography PI		
+metavar10	Oxygen PI		
+metavar11	Nutrients PI		
+metavar12	CFC PI		
+metavar13	Organics PI		
+metavar14	Isotopes PI		
+metavar15	Other PI		
+metavar16	Cruise Metadata		
+dont_chng   date_time	Decimal Gregorian Days of the station	days since 2000-01-01 00:00:00 UTC	Relative Gregorian Days with decimal part
+			
+var1	PRESSURE	DBAR	
+var2	DEPTH	M	
+var3	TEMPERATURE	DEG C	
+var4	SALNTY	PSS-78	
+var5	OXYGEN	UMOL/KG	
+var6	PHSPHT	UMOL/KG	
+var7	SILCAT	UMOL/KG	
+var8	NITRAT	UMOL/KG	
+var9	NITRIT	UMOL/KG	
+var10	ALKALI	UMOL/KG	
+var11	TCARBN	UMOL/KG	
+var12	pH~_T	p=0,T=25,S	
+var13	pH~_T	p,T,S	
+var14	THETA	DEG C	
+var15	SIGMA0	KG/M**3	
+var16	SIGMA1	KG/M**3	
+var17	SIGMA2	KG/M**3	
+var18	SIGMA3	KG/M**3	
+var19	SIGMA4	KG/M**3	
+var20	NEUTRAL DENSITY	KG/M**3	
+
+note* the 2021 data seems to have more variables, var45 for example, vs above is for 2022 glodap. 
+
+
+
+-------------------------
+Processed/GLODAP
+
+GLODAP_22.nc
+
+
+dimensions:
+        Station_ID = 3884 ;
+        NAA_Deptht = 46 ;
+variables:
+        float PRESSURE(Station_ID, NAA_Deptht) ;
+                PRESSURE:_FillValue = NaNf ;
+        float var1_qc(Station_ID, NAA_Deptht) ;
+                var1_qc:_FillValue = NaNf ;
+        float DEPTH(Station_ID, NAA_Deptht) ;
+                DEPTH:_FillValue = NaNf ;
+        float var2_qc(Station_ID, NAA_Deptht) ;
+                var2_qc:_FillValue = NaNf ;
+        float TEMPERATURE(Station_ID, NAA_Deptht) ;
+                TEMPERATURE:_FillValue = NaNf ;
+        float var3_qc(Station_ID, NAA_Deptht) ;
+                var3_qc:_FillValue = NaNf ;
+        float SALNTY(Station_ID, NAA_Deptht) ;
+                SALNTY:_FillValue = NaNf ;
+        float var4_qc(Station_ID, NAA_Deptht) ;
+                var4_qc:_FillValue = NaNf ;
+        float OXYGEN(Station_ID, NAA_Deptht) ;
+                OXYGEN:_FillValue = NaNf ;
+        float var5_qc(Station_ID, NAA_Deptht) ;
+                var5_qc:_FillValue = NaNf ;
+        float PHSPHT(Station_ID, NAA_Deptht) ;
+                PHSPHT:_FillValue = NaNf ;
+        float var6_qc(Station_ID, NAA_Deptht) ;
+                var6_qc:_FillValue = NaNf ;
+        float SILCAT(Station_ID, NAA_Deptht) ;
+                SILCAT:_FillValue = NaNf ;
+        float var7_qc(Station_ID, NAA_Deptht) ;
+                var7_qc:_FillValue = NaNf ;
+        float NITRAT(Station_ID, NAA_Deptht) ;
+                NITRAT:_FillValue = NaNf ;
+        float var8_qc(Station_ID, NAA_Deptht) ;
+                var8_qc:_FillValue = NaNf ;
+        float NITRIT(Station_ID, NAA_Deptht) ;
+                NITRIT:_FillValue = NaNf ;
+        float var9_qc(Station_ID, NAA_Deptht) ;
+                var9_qc:_FillValue = NaNf ;
+        float ALKALI(Station_ID, NAA_Deptht) ;
+                ALKALI:_FillValue = NaNf ;
+        float var10_qc(Station_ID, NAA_Deptht) ;
+                var10_qc:_FillValue = NaNf ;
+        float TCARBN(Station_ID, NAA_Deptht) ;
+                TCARBN:_FillValue = NaNf ;
+        float var11_qc(Station_ID, NAA_Deptht) ;
+                var11_qc:_FillValue = NaNf ;
+        float pH\~_T(Station_ID, NAA_Deptht) ;
+                pH\~_T:_FillValue = NaNf ;
+        float var12_qc(Station_ID, NAA_Deptht) ;
+                var12_qc:_FillValue = NaNf ;
+        float pH\~_T2(Station_ID, NAA_Deptht) ;
+                pH\~_T2:_FillValue = NaNf ;
+        float var13_qc(Station_ID, NAA_Deptht) ;
+                var13_qc:_FillValue = NaNf ;
+        float THETA(Station_ID, NAA_Deptht) ;
+                THETA:_FillValue = NaNf ;
+        float var14_qc(Station_ID, NAA_Deptht) ;
+                var14_qc:_FillValue = NaNf ;
+        float SIGMA0(Station_ID, NAA_Deptht) ;
+                SIGMA0:_FillValue = NaNf ;
+        float var15_qc(Station_ID, NAA_Deptht) ;
+                var15_qc:_FillValue = NaNf ;
+        float SIGMA1(Station_ID, NAA_Deptht) ;
+                SIGMA1:_FillValue = NaNf ;
+        float var16_qc(Station_ID, NAA_Deptht) ;
+                var16_qc:_FillValue = NaNf ;
+        float SIGMA2(Station_ID, NAA_Deptht) ;
+                SIGMA2:_FillValue = NaNf ;
+        float var17_qc(Station_ID, NAA_Deptht) ;
+                var17_qc:_FillValue = NaNf ;
+        float SIGMA3(Station_ID, NAA_Deptht) ;
+                SIGMA3:_FillValue = NaNf ;
+        float var18_qc(Station_ID, NAA_Deptht) ;
+                var18_qc:_FillValue = NaNf ;
+        float SIGMA4(Station_ID, NAA_Deptht) ;
+                SIGMA4:_FillValue = NaNf ;
+        float var19_qc(Station_ID, NAA_Deptht) ;
+                var19_qc:_FillValue = NaNf ;
+        float NEUTRAL\ DENSITY(Station_ID, NAA_Deptht) ;
+                NEUTRAL\ DENSITY:_FillValue = NaNf ;
+        float var20_qc(Station_ID, NAA_Deptht) ;
+                var20_qc:_FillValue = NaNf ;
+        double Longitude(Station_ID) ;
+                Longitude:_FillValue = NaN ;
+                Longitude:long_name = "Longitude" ;
+                Longitude:standard_name = "longitude" ;
+                Longitude:units = "degrees_east" ;
+                Longitude:comment = "" ;
+                Longitude:C_format = "%.3f" ;
+                Longitude:FORTRAN_format = "F12.3" ;
+        double Latitude(Station_ID) ;
+                Latitude:_FillValue = NaN ;
+                Latitude:long_name = "Latitude" ;
+                Latitude:standard_name = "latitude" ;
+                Latitude:units = "degrees_north" ;
+                Latitude:comment = "" ;
+                Latitude:C_format = "%.3f" ;
+                Latitude:FORTRAN_format = "F12.3" ;
+        double Bot.\ Depth(Station_ID) ;
+                Bot.\ Depth:_FillValue = NaN ;
+                Bot.\ Depth:long_name = "Bot. Depth" ;
+                Bot.\ Depth:units = "m" ;
+                Bot.\ Depth:comment = "" ;
+                Bot.\ Depth:C_format = "%.0f" ;
+                Bot.\ Depth:FORTRAN_format = "F12.0" ;
+        int64 date_time(Station_ID) ;
+                date_time:long_name = "Decimal Gregorian Days of the station" ;
+                date_time:standard_name = "time" ;
+                date_time:comment = "Relative Gregorian Days with decimal part" ;
+                date_time:C_format = "%.5f" ;
+                date_time:FORTRAN_format = "F12.5" ;
+                date_time:units = "nanoseconds since 2007-07-29 15:45:00" ;
+                date_time:calendar = "proleptic_gregorian" ;
+        float lons(Station_ID) ;
+                lons:_FillValue = NaNf ;
+                lons:long_name = "Longitude" ;
+                lons:standard_name = "longitude" ;
+                lons:units = "degrees_east" ;
+                lons:comment = "" ;
+                lons:C_format = "%.3f" ;
+                lons:FORTRAN_format = "F12.3" ;
+        float lats(Station_ID) ;
+                lats:_FillValue = NaNf ;
+                lats:long_name = "Latitude" ;
+                lats:standard_name = "latitude" ;
+                lats:units = "degrees_north" ;
+                lats:comment = "" ;
+                lats:C_format = "%.3f" ;
+                lats:FORTRAN_format = "F12.3" ;
+        float lonmin(Station_ID) ;
+                lonmin:_FillValue = NaNf ;
+        float lonmax(Station_ID) ;
+                lonmax:_FillValue = NaNf ;
+        float latmin(Station_ID) ;
+                latmin:_FillValue = NaNf ;
+        float latmax(Station_ID) ;
+                latmax:_FillValue = NaNf ;
+        string X_NAA(Station_ID) ;
+        string Y_NAA(Station_ID) ;
+        double lenx(Station_ID) ;
+                lenx:_FillValue = NaN ;
+        double leny(Station_ID) ;
+                leny:_FillValue = NaN ;
+        double NAA_Deptht(NAA_Deptht) ;
+                NAA_Deptht:_FillValue = NaN ;
+        string Station_ID(Station_ID) ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
